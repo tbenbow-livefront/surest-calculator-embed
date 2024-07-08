@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surest Savings Calculator Embed</title>
+  <style>
+    /* CSS styles can go here */
+    body, html, h1, p {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      height: 150px;
+      color: #dddddd;
+      background: #050505;
+    }
+    footer {
+      height: 50px;
+      color: #dddddd;
+      background: #050505;
+    }
+    main {
+      flex-grow: 1;
+      padding: 20px;
+    }
+    section {
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+    h1 {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Header</h1>
+  </header>
+  <main>
+    <section>
+      <!-- Begin embed -->
+      <div id="surest-calculator">
+        <iframe title="Surest Savings Calculator" width="100%" height="640px" style="border: 0;" src="http://localhost:3000/drafts/tbenbow/savings-calculator-embed"></iframe>
+      </div>
+      <script>  
+        function onSurestResize() {
+          const iFrameWrap = document.getElementById('surest-calculator');
+          const iFrame = iFrameWrap.querySelector('iframe');
+          const width = iFrameWrap.offsetWidth;
+
+          if (width < 640 && iFrame) {
+            iFrame.height = `970px`;
+          } else {
+            iFrame.height = `640px`;
+          }
+        }
+
+        window.addEventListener('resize', onSurestResize);
+        onSurestResize();
+      </script>
+      <!-- End embed -->
+    </section>
+  </main>
+  <footer>
+    <p>Footer</p>
+  </footer>
+</body>
+
+</html>
